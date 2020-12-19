@@ -39,7 +39,7 @@ if (!process.argv.includes('set') && !API) {
   const {
     program
   } = require('commander')
-  program.version('0.0.4')
+  program.version('0.0.5')
 
   program
     .command('add <content>')

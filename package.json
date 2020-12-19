@@ -1,14 +1,18 @@
 {
   "name": "flomo",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "flomo cli",
   "main": "index.js",
   "scripts": {},
   "bin": {
     "flomo": "index.js"
   },
-  "author": "",
+  "author": "Airyland <i@mao.li>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/airyland/flomo.git"
+  },
   "dependencies": {
     "axios": "^0.21.0",
     "commander": "^6.2.1",
