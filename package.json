@@ -1,20 +1,18 @@
 {
   "name": "flomo",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "flomo cli",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "bin": {
     "flomo": "index.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.0",
     "commander": "^6.2.1",
     "inquirer": "^7.3.3",
-    "node-cli-config": "^0.0.1",
-    "request": "^2.88.2",
-    "request-promise": "^4.2.6"
+    "node-cli-config": "^0.0.1"
   }
 }

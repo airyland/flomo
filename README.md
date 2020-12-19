@@ -7,7 +7,7 @@ yarn global add flomo
 
 # or
 
-npm install flomo -g
+npm install -g flomo
 ```
 
 

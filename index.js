@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const inquirer = require('inquirer')
-const request = require('request-promise')
+const request = require('axios')
 const config = require('./config')
 
 const API = config.get('api')
@@ -19,19 +19,19 @@ if (!process.argv.includes('set') && !API) {
     }}])
     .then(async answers => {
       config.set('api', answers.API)
+      if (process.argv.includes('add')) {
         try {
-          const rs = await request({
-            url: answers.API,
-            method: 'POST',
-            json: {
-              content: process.argv[process.argv.length - 1]
-            }
+          const rs = await request.post(answers.API, {
+            content: process.argv[process.argv.length - 1]
           })
-          console.log(rs)
+          console.log(rs.data)
         } catch (e) {
           console.log(e)
         }
-      })
+      } else {
+        console.log('Done.')
+      }
+    })
     .catch(error => {
       console.log(error)
     })
@@ -39,21 +39,17 @@ if (!process.argv.includes('set') && !API) {
   const {
     program
   } = require('commander')
-  program.version('0.0.1')
+  program.version('0.0.4')
 
   program
     .command('add <content>')
     .description('add a new memo')
     .action(async (content) => {
       try {
-        const rs = await request({
-          url: API,
-          method: 'POST',
-          json: {
-            content
-          }
+        const rs = await request.post(API, {
+          content
         })
-        console.log(rs)
+        console.log(rs.data)
       } catch (e) {
         console.log(e)
       }
